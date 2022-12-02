@@ -20,8 +20,7 @@ int datalen = sizeof(databuf);
 int main (int argc, char *argv[ ])
 {
 	struct sockaddr_in server_sockaddr,client_sockaddr;
-	socklen_t sin_size ;
-	//socklen_t sin_size= sizeof(struct sockaddr);
+	socklen_t sin_size= sizeof(struct sockaddr);
 	int recvbytes;
 	int sockfd,client_fd;
 	char buf[MAXDATASIZE]={0};
@@ -127,9 +126,6 @@ int main (int argc, char *argv[ ])
 
 	printf("listening....\n");
 
-	//memset(&client_sockaddr, 0, sizeof(struct sockaddr_in));
-
-	//sin_size = 1;
     	printf("sin_size=%d\n",sin_size);
 
 	if((client_fd=accept(sockfd,(struct sockaddr *)&client_sockaddr,&sin_size))==-1)
